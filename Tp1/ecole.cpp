@@ -1,7 +1,6 @@
 #include "ecole.h"
 #include <cstdio>
 using namespace std;
-// Constructor: initializes school with name, address, number of students, and array of students per level
 ecole::ecole(const char *nom,const char *adresse, int ne, int *eleve)
 {
     if (nom)
@@ -45,7 +44,6 @@ ecole::ecole(const char *nom,const char *adresse, int ne, int *eleve)
         for (int i = 0; i < 6; i++) this->eleve[i] = 0;
     }
 }
-// Copy constructor: creates a deep copy of another ecole object
 ecole::ecole(const ecole &e){
     if (e.nom)
     {
@@ -80,7 +78,6 @@ ecole::ecole(const ecole &e){
         for (int i = 0; i < 6; i++) this->eleve[i] = 0;
     }
 }
-// Destructor: frees dynamically allocated memory for nom, adresse, and eleve arrays
 ecole::~ecole()
 {
     if (nom)
@@ -104,7 +101,6 @@ int *ecole::get_eleve_niveau(int niveau)
 {
     return eleve;
 }
-// Operator+: combines two schools into a new school with merged student counts
 ecole& ecole::operator+(const ecole &autre){
     char nouveau_nom[50] , nouvelle_adresse[50];
     cout<<"Entrez le nom de la nouvelle ecole: ";
@@ -130,19 +126,15 @@ ecole& ecole::operator+(const ecole &autre){
     this->ne = nouveau_ne;
     return *this;
 }
-// Operator++: increments the total number of students in the school
 ecole& ecole::operator++(){
     this->ne++;
     return *this;
 }
-// FIXED: sprintf now has buffer (chaine) as first argument
-// Conversion operator: converts ecole object to string representation
 ecole::operator char*() const {
     char* chaine= new char[500];
     sprintf(chaine, "Ecole: %s\nAdresse: %s\nNombre d'eleves: %d\nEleves par niveau: %d, %d, %d, %d, %d, %d\n",nom,adresse,ne,eleve[0],eleve[1],eleve[2],eleve[3],eleve[4],eleve[5]);
     return chaine;
 }
-// view(): displays school information (name, address, student count, students per level)
 void ecole::view() const {
     cout<<"Ecole: "<<nom<<endl;
     cout<<"Adresse: "<<adresse<<endl;

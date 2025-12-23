@@ -2,9 +2,7 @@
 #include "ecole.h"
 #include <cstdio>
 #include <cstring>
-#include <iostream>
 using namespace std;
-// Constructor: initializes private school with parent class members plus gerant (manager) and capital
 ecole_privee::ecole_privee(const char *nom, const char *adresse, int ne, int *eleve, const char *gerant, float capital) : ecole(nom, adresse, ne, eleve)
 {
     if (gerant)
@@ -25,7 +23,6 @@ ecole_privee::ecole_privee(const char *nom, const char *adresse, int ne, int *el
         this->capital = 0;
     }
 }
-// Destructor: frees dynamically allocated memory for gerant string
 ecole_privee::~ecole_privee()
 {
     if (gerant)
@@ -33,32 +30,29 @@ ecole_privee::~ecole_privee()
         delete[] gerant;
     }
 }
-// Operator++: increments student count using parent class operator
 ecole_privee &ecole_privee::operator++()
 {
     ecole::operator++();
     return *this;
 }
-// Conversion operator: converts ecole_privee object to string with all details including manager and capital
 ecole_privee::operator char *() const
 {
     char *chaine = new char[600];
     sprintf(chaine, "Ecole Privee: %s\nadresse: %s\ngerant: %s\ncapital: %f\nne: %d\neleve: %d,%d,%d,%d,%d,%d",
-                nom, adresse, gerant, capital, ne, eleve[0], eleve[1], eleve[2], eleve[3], eleve[4], eleve[5]);
+            nom, adresse, gerant, capital, ne, eleve[0], eleve[1], eleve[2], eleve[3], eleve[4], eleve[5]);
     return chaine;
 }
-// view(): displays private school information including manager name and capital amount
 void ecole_privee::view() const
 {
     cout << "Ecole Privee: " << nom << endl;
-    cout << "Adresse: " << adresse<< endl;
+    cout << "Adresse: " << adresse << endl;
     cout << "Gerant: " << gerant << endl;
     cout << "Capital: " << capital << endl;
     cout << "Nombre d'eleves: " << ne << endl;
     cout << "Eleves par niveau: ";
     for (int i = 0; i < 6; i++)
     {
-        cout << eleve[i] ;
+        cout << eleve[i];
         if (i < 5)
             cout << ", ";
     }

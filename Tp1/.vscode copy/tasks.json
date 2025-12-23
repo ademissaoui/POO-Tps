@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "Build with GCC 11.2.0",
-            "type": "cppbuild",
+            "type": "shell",
             "command": "g++",
             "args": [
                 "-std=c++20",
@@ -11,7 +11,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "group": {
                 "kind": "build",
@@ -22,7 +22,7 @@
         },
         {
             "label": "C/C++: g++.exe (ucrt64) build active file",
-            "type": "cppbuild",
+            "type": "shell",
             "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-std=c++20",
@@ -41,7 +41,7 @@
         },
         {
             "label": "C/C++: g++.exe (mingw64) build active file",
-            "type": "cppbuild",
+            "type": "shell",
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-std=c++20",
