@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build main.exe",
+      "type": "shell",
+      "command": "C:/msys64/mingw64/bin/g++.exe",
+      "args": [
+        "-std=c++20",
+        "-Wall",
+        "-g",
+        "${workspaceFolder}/POO-Tps/Tp1/main.cpp",
+        "${workspaceFolder}/POO-Tps/Tp1/ecole.cpp",
+        "${workspaceFolder}/POO-Tps/Tp1/ecole_privee.cpp",
+        "-o",
+        "${workspaceFolder}/POO-Tps/Tp1/main.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
